@@ -3,19 +3,24 @@ $(".agregar").on("click", (e) => {
     e.preventDefault();
     //Gets the text value from input field
     const itemName = $("#newText").val();
-    //List element structure
-    let msg = 
-    `<li>
-        <div class="lis">
-            <p>${itemName}</p> <br>
-            <button class="checar">check</button>
-            <button class="del">delete</button>
-        </div>
-    </li>`
-    //Appends item to list
-    $(".Lista").append(msg)
-    //Clears input field
-    $("#newText").val("")
+
+    if(itemName !== "") {
+        //List element structure
+        let msg = 
+        `<li>
+            <div class="lis">
+                <p>${itemName}</p> <br>
+                <button class="checar">check</button>
+                <button class="del">delete</button>
+            </div>
+        </li>`
+        //Appends item to list
+        $(".Lista").append(msg)
+        //Clears input field
+        $("#newText").val("")
+    } else {
+        alert("Make sure to write an item before adding it");
+    }
 })
 
 $(".Lista").on("click", "button", function(e){
